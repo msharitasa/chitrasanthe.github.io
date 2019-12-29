@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+@import "bootstrap-4.4.1/functions";
+@import "cbs_variables";
+@import "bootstrap-4.4.1/bootstrap";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 8rem;
+  margin-bottom: 248px;
+  &.condensed-nav {
+    .navbar {
+      .logo {
+        width: 60px;
+        transition: width 1s ease 0s;
+      }
+    }
+  }
+}
+
+h1,
+h2 {
+  display: none;
+  visibility: hidden;
+}
+
+.jumbotron {
+  background-color: transparent;
+}
+
+.page-footer {
+  text-align: center;
+}

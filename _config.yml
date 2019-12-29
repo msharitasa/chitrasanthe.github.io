@@ -1,0 +1,32 @@
+#Site settings
+
+title: "Chitra Santhe - ART FOR ALL"
+owner: "Karnataka Chitrakala Parishath"
+email: chitrakalaparishath@gmail.com
+description: >-
+  A 17th successive annual event/ fair being organised by Karnataka Chitrakala Parishath, Bengaluru.
+baseurl: ""
+url: "https://chitrasanthe.org"
+twitter_username: chitrasanthe
+github_username: chitrasanthe
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+include: ["_pages"]
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: "assets/images"
+    values:
+      image: true
+
+sass:
+  sass_dir: _scss
+  style: compressed
