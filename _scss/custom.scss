@@ -1,25 +1,37 @@
-@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url(//fonts.googleapis.com/earlyaccess/notosanskannadaui.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskannada.css);
+
+@import url("https://fonts.googleapis.com/css?family=Muli|Poppins&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Ma+Shan+Zheng&display=swap");
 
 @import "bootstrap-4.4.1/functions";
 @import "cbs_variables";
 @import "bootstrap-4.4.1/bootstrap";
 
 html {
-  position: relative;
-  min-height: 100%;
+  @extend .h-100;
 }
 
 body {
-  padding-top: 8rem;
-  margin-bottom: 248px;
-  &.condensed-nav {
+  @extend .h-100, .d-flex, .flex-column;
+  padding-top: 14rem;
+  @include media-breakpoint-down(sm) {
     .navbar {
       .logo {
-        width: 60px;
-        transition: width 1s ease 0s;
+        width: 160px;
       }
     }
   }
+}
+
+.gray-bg {
+  background-color: $gray-200;
+}
+
+.bg-gradient {
+  color: #f5f5f5;
+  background-image: linear-gradient(45deg, #29323c, #485563);
 }
 
 h1,
@@ -28,10 +40,185 @@ h2 {
   visibility: hidden;
 }
 
-.jumbotron {
-  background-color: transparent;
+.navbar {
+  @extend .flex-column, .text-center;
+  .navbar-brand {
+    margin: 1rem;
+  }
+  .navbar-toggler {
+    color: initial;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border: none 0;
+  }
+  .navbar-nav {
+    .nav-link {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+}
+
+.lang-link {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  padding: 1rem;
+  z-index: 1230;
+}
+
+section {
+  padding: 2rem;
+  border-top: solid 1px #111111;
+  border-bottom: solid 1px #222222;
+  @include media-breakpoint-up(md) {
+    padding: 6rem;
+  }
+  h3 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &.hero {
+    padding: 0;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    .color-overlay {
+      position: absolute;
+      background: black !important;
+      opacity: 0.6;
+      width: 100%;
+      height: 100%;
+    }
+    .container-fluid {
+      position: absolute;
+      padding: 4.2rem;
+      color: #f5f5f5;
+      .display-1 {
+        font-family: "Ma Shan Zheng";
+        font-size: 8rem;
+        small {
+          font-size: 60%;
+        }
+      }
+      .lead {
+        span {
+          color: #888888;
+          padding: 0 1rem;
+          font-size: 180%;
+        }
+      }
+      .btn-lg {
+        margin: 0 1rem;
+      }
+      .kcp-svg {
+        width: 120px;
+        path {
+          stroke: #f5f5f5 !important;
+          &.title {
+            fill: #f5f5f5 !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.highlights {
+    text-align: center;
+    div[class^="col"] {
+      margin-bottom: 2rem;
+      p {
+        @extend .lead;
+      }
+    }
+  }
+
+  &.testimonials {
+    blockquote {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &.contact {
+    text-align: center;
+  }
+
+  &.arts,
+  &.artists,
+  &.gallery {
+    &.bg-dark {
+      h3 {
+        color: #f5f5f5;
+      }
+      color: initial;
+    }
+    .card {
+      margin-bottom: 2rem;
+    }
+  }
+  &.about {
+    p {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.en {
+  font-family: $font-family-base;
+}
+
+.kn {
+  font-family: "Noto Sans Kannada UI", "Noto Sans Kannada" !important;
+  line-height: 2rem;
+  section {
+    &.hero {
+      .display-1 {
+        font-size: 6rem;
+      }
+    }
+  }
+  .display-3 {
+    line-height: 1.8;
+  }
 }
 
 .page-footer {
+  @extend .mt-auto, .py-3;
   text-align: center;
+  color: #dddddd;
+  border-top: solid 2px #555555;
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  a {
+    color: #f5f5f5;
+    font-weight: bold;
+  }
+
+  .scroll-top {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 1230;
+    a {
+      box-shadow: 0px 2px 6px #888888;
+      width: 1rem;
+      height: 1rem;
+      color: #f5f5f5;
+      background-color: $primary;
+      text-align: center;
+      vertical-align: middle;
+      padding: 1rem;
+      border-radius: 100%;
+      .fas {
+        font-size: 130%;
+        font-weight: bold;
+      }
+    }
+  }
 }

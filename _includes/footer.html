@@ -1,10 +1,30 @@
-<footer class="container-fluid page-footer">
-  <div class="row">
-    <div class="col-sm-12">
-      <p class="copyright">
-        Copyright &copy; {{site.time | date: '%Y' }} {{site.owner}}. All rights
-        reserved.
-      </p>
-    </div>
+<footer class="container-fluid bg-dark page-footer">
+  <div class="container">
+    {% if page.lang == 'kn' %}
+    <p class="copyright">
+      Copyright &copy; {{site.time | date: '%Y' }}
+      <a href="https://www.karnatakachitrakalaparishath.com/" target="_blank">
+        {{site.owner.kn}}</a
+      >. All rights reserved.
+    </p>
+    <p>
+      ಈ ಮಿಂದಾಣವನ್ನು ಮಾಡಿದವರು
+      <a href="https://mahakuta.com" target="_blank">ಮಹಾಕೂಟ</a>
+    </p>
+    {% else %}
+    <p class="copyright">
+      Copyright &copy; {{site.time | date: '%Y' }}
+      <a href="https://www.karnatakachitrakalaparishath.com/" target="_blank"
+        >{{site.owner.en}}</a
+      >. All rights reserved.
+    </p>
+    <p>
+      Site designed by
+      <a href="https://mahakuta.com" target="_blank">Mahakuta</a>
+    </p>
+    {% endif %}
+  </div>
+  <div class="scroll-top">
+    <a href="#"><i class="fas fa-angle-double-up"></i></a>
   </div>
 </footer>

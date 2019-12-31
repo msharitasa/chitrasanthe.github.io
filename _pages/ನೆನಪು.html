@@ -1,0 +1,25 @@
+---
+lang: kn
+permalink: /ನೆನಪು
+---
+
+<section class="bg-dark gallery">
+  <h3>ನೆನಪು - 2019</h3>
+  <div class="card-columns">
+    {% for image in site.static_files %} {% if image.path contains
+    'images/gallery' %}
+    <div class="card">
+      <img
+        src="{{ site.baseurl }}{{ image.path }}"
+        class="card-img-top"
+        alt="image"
+      />
+      <!-- <div class="card-body">
+        <p class="card-text text-center">
+          <small class="text-muted">Artist Unknown</small>
+        </p>
+      </div> -->
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+</section>

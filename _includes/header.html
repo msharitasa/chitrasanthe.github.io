@@ -1,0 +1,78 @@
+<header>
+  <div class="container-fluid">
+    <div class="lang-link">
+      <i class="fas fa-language"></i>
+      {% if page.lang == "en" %}
+      <a class="kn" href="{{site.url}}/{{site.index.kn}}">ಕನ್ನಡ</a>
+      {% else %}
+      <a class="en" href="{{site.url}}">English</a>
+      {% endif %}
+    </div>
+    <nav class="navbar navbar-expand-md fixed-top navbar-light gray-bg">
+      <h2>Primary Navigation</h2>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          {% if page.lang == "en" %}
+          <a class="navbar-brand" href="{{site.url}}">
+            <img class="logo" src="{{'/assets/images/cse.png' | prepend: site.baseurl}}" alt="Chitra Santhe" />
+          </a>
+          {% else %}
+          <a class="navbar-brand" href="{{site.url}}/{{site.index.kn}}">
+            <img class="logo" src="{{'/assets/images/csk.png' | prepend: site.baseurl}}" alt="ಚಿತ್ರಸಂತೆ" />
+          </a>
+          {% endif %}
+        </li>
+      </ul>
+      <a
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+        aria-controls="navbarCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="fas fa-bars"></span>
+      </a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        {% assign current = page.url | downcase %}
+        {% if page.lang == "en" %}
+        <ul class="navbar-nav">
+          <li {% if current == '/' %}class="nav-item active" {% else %} class="nav-item" {% endif %}>
+            <a class="nav-link" href="{{site.url}}">Home</a>
+          </li>
+          <li {% if current == '/arts' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+            <a class="nav-link" href="{{site.url}}/arts">Arts</a>
+          </li>
+          <li {% if current == '/artists' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+            <a class="nav-link" href="{{site.url}}/artists">Artists</a>
+          </li>
+          <li {% if current == '/gallery' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+            <a class="nav-link" href="{{site.url}}/gallery">Gallery</a>
+          </li>
+          <li {% if current == '/about' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+            <a class="nav-link" href="{{site.url}}/about">About</a>
+          </li>
+        </ul>
+        {% else %}
+        <ul class="navbar-nav">
+          <li {% if current == '/ಕನ್ನಡ' %}class="nav-item active" {% else %} class="nav-item" {% endif %}>
+            <a class="nav-link" href="{{site.url}}/{{site.index.kn}}">ಮನೆ</a>
+          </li>
+          <li {% if current == '/ಕಲೆಗಳು' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+            <a class="nav-link" href="{{site.url}}/ಕಲೆಗಳು">ಕಲೆಗಳು</a>
+          </li>
+          <li {% if current == '/ಕಲಾವಿಧರು' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+            <a class="nav-link" href="{{site.url}}/ಕಲಾವಿಧರು">ಕಲಾವಿಧರು</a>
+          </li>
+          <li {% if current == '/ನೆನಪು' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+            <a class="nav-link" href="{{site.url}}/ನೆನಪು">ನೆನಪು</a>
+          </li>
+          <li {% if current == '/ನಮ್ಮ-ಬಗ್ಗೆ' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
+            <a class="nav-link" href="{{site.url}}/ನಮ್ಮ-ಬಗ್ಗೆ">ನಮ್ಮ ಬಗ್ಗೆ</a>
+          </li>
+        </ul>
+        {% endif %}
+      </div>
+    </nav>
+  </div>
+</header>

@@ -5,19 +5,37 @@
     name="viewport"
     content="width=device-width, initial-scale=1, shrink-to-fit=no"
   />
+  <title>
+    {% if page.title %}{{ page.title | escape }}{% else %}{{
+    site.title[page.lang] | escape }}{% endif %}
+  </title>
 
-  <title>{{page.title}}</title>
-  <meta name="description" content="" />
   <meta name="keywords" content="" />
   <meta name="robots" content="index, follow" />
-  <meta name="copyright" content="Karnataka Chitrakala Parishath" />
-  <meta name="language" content="EN" />
-  <meta name="author" content="Karnataka Chitrakala Parishath" />
+  {% if page.owner %}
+  <meta name="copyright" content="{{page.owner | escape}}" />
+  <meta name="author" content="{{page.owner | escape}}" />
+  <meta name="description" content="{{page.description | escape}}" />
+  {% else %}
+  <meta
+    name="copyright"
+    content="{{site.owner[page.lang] |
+    escape }}"
+  />
+  <meta
+    name="author"
+    content="{{site.owner[page.lang] |
+    escape }}"
+  />
+  <meta name="description" content="{{site.description[page.lang] | escape}}" />
+
+  {% endif %}
   <meta name="creationdate" content="December 30, 2019" />
   <meta name="distribution" content="global" />
   <meta name="rating" content="general" />
 
   <!-- Favicon -->
+  <link rel="apple-touch-icon" href="favicon.png" />
 
   <link
     rel="icon"
@@ -28,5 +46,10 @@
   <link
     rel="stylesheet"
     href="{{'/assets/scss/main.css' | prepend: site.baseurl}}"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
   />
 </head>
