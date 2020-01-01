@@ -1,0 +1,24 @@
+<section class="bg-gradient arts">
+  {% if page.lang == 'en' %}
+  <h3>Arts</h3>
+  {% else %}
+  <h3>ಕಲೆಗಳು</h3>
+  {% endif %}
+  <div class="card-columns">
+    {% for image in site.static_files %} {% if image.path contains 'images/arts'
+    %}
+    <div class="card">
+      <img
+        src="{{ site.baseurl }}{{ image.path }}"
+        class="card-img-top"
+        alt="image"
+      />
+      <!-- <div class="card-body">
+          <p class="card-text text-center">
+            <small class="text-muted">Artist Unknown</small>
+          </p>
+        </div> -->
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,29 @@
+<section class="bg-gradient artists">
+  {% if page.lang == 'en' %}
+  <h3>Artists</h3>
+  {% else %}
+  <h3>ಕಲಾವಿದರು</h3>
+  {% endif %}
+  <div class="card-columns">
+    {% for image in site.static_files %} {% if image.path contains
+    'images/artists' %}
+    <div class="card text-center">
+      <img src="..." class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          This card has a regular title and short paragraphy of text below it.
+        </p>
+        <p class="card-text">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </p>
+      </div>
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+  {% if page.lang == 'en' %}
+  <p class="text-center text-light">Artists' list will be updated shortly</p>
+  {% else %}
+  <p class="text-center text-light">ಮಾಹಿತಿ ಬೇಗನೆ ಒದಗಿಸಲಾಗುವುದು</p>
+  {% endif %}
+</section>
