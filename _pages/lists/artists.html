@@ -4,7 +4,87 @@
   {% else %}
   <h3>ಕಲಾವಿದರು</h3>
   {% endif %}
-  <div class="card-columns">
+  <!-- cards  -->
+  {% if site.data.artists.size > 0 %}
+      {% for artist in site.data.artists %}
+      <div class="card">
+        <div class="row no-gutters">
+          <div class="col-md-2">
+            <img src="{{artist.Profile_image_link}}" alt="image" class="card-img">
+          </div>
+          <div class="col-md-10">
+            <div class="card-body">
+              <div class="card-header">
+                <h5 class="card-title">{{artist.Name}}</h5>
+                <p class="card-text">{{artist.Description}}</p>
+              </div>
+              <div class="art-list">
+                <div class="row">
+                  {% if artist.Work_image_link_1 %}
+                  <div class="col-sm-6">
+                    <a href="#" data-toggle="modal" data-target="#art-{{forloop.index}}-0">
+                      <img src="{{artist.Work_image_link_1}}" alt="image" class="img-fluid">
+                    </a>
+                  </div>
+                  {% endif %}
+                  {% if artist.Work_image_link_2 %}
+                  <div class="col-sm-6">
+                    <a href="#" data-toggle="modal" data-target="#art-{{forloop.index}}-1">
+                      <img src="{{artist.Work_image_link_2}}" alt="image" class="img-fluid">
+                    </a>
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% if artist.Work_image_link_1 %}
+      <div class="modal fade" id="art-{{forloop.index}}-0" tabindex="-1" role="dialog" aria-labelledby="art-{{forloop.index}}-0-Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="art-{{forloop.index}}-0-Title"><i class="text-secondary">art by </i>{{artist.Name}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="{{artist.Work_image_link_1}}" alt="image" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% if artist.Work_image_link_1 %}
+      <div class="modal fade" id="art-{{forloop.index}}-1" tabindex="-1" role="dialog" aria-labelledby="art-{{forloop.index}}-1-Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="art-{{forloop.index}}-1-Title"><i class="text-secondary">art by </i>{{artist.Name}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="{{artist.Work_image_link_2}}" alt="image" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+  {% else %}
+    <p class="text-center text-light">
+      {% if page.lang == 'en' %}
+        Artists' list will be updated shortly
+      {% else %}
+        ಮಾಹಿತಿ ಬೇಗನೆ ಒದಗಿಸಲಾಗುವುದು
+      {% endif %}
+    </p>
+    {% endif %}
+    <!-- for -->
     {% for image in site.static_files %} {% if image.path contains
     'images/artists' %}
     <div class="card text-center">
@@ -21,9 +101,4 @@
     </div>
     {% endif %} {% endfor %}
   </div>
-  {% if page.lang == 'en' %}
-  <p class="text-center text-light">Artists' list will be updated shortly</p>
-  {% else %}
-  <p class="text-center text-light">ಮಾಹಿತಿ ಬೇಗನೆ ಒದಗಿಸಲಾಗುವುದು</p>
-  {% endif %}
 </section>
